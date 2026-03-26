@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* AK Group - Dark Navy + Cyan Tech Theme */
+    --background: 0.1 0.015 250;
+    --foreground: 0.95 0.01 240;
+
+    --card: 0.14 0.02 250;
+    --card-foreground: 0.95 0.01 240;
+
+    --popover: 0.16 0.02 248;
+    --popover-foreground: 0.95 0.01 240;
+
+    /* Primary: Bright Cyan */
+    --primary: 0.78 0.18 194;
+    --primary-foreground: 0.08 0.02 250;
+
+    /* Secondary: Deep Navy */
+    --secondary: 0.18 0.03 248;
+    --secondary-foreground: 0.85 0.02 240;
+
+    --muted: 0.15 0.02 248;
+    --muted-foreground: 0.55 0.04 240;
+
+    /* Accent: Electric Teal */
+    --accent: 0.72 0.2 188;
+    --accent-foreground: 0.06 0.02 250;
+
+    --destructive: 0.65 0.25 25;
+    --destructive-foreground: 0.98 0.01 0;
+
+    --border: 0.25 0.03 245;
+    --input: 0.2 0.03 248;
+    --ring: 0.78 0.18 194;
+
+    --chart-1: 0.78 0.18 194;
+    --chart-2: 0.65 0.22 260;
+    --chart-3: 0.55 0.2 310;
+    --chart-4: 0.75 0.18 165;
+    --chart-5: 0.85 0.16 95;
+
+    --sidebar: 0.12 0.02 252;
+    --sidebar-foreground: 0.95 0.01 240;
+    --sidebar-primary: 0.78 0.18 194;
+    --sidebar-primary-foreground: 0.08 0.02 250;
+    --sidebar-accent: 0.18 0.03 248;
+    --sidebar-accent-foreground: 0.85 0.02 240;
+    --sidebar-border: 0.25 0.03 245;
+    --sidebar-ring: 0.78 0.18 194;
+
+    /* Custom tokens */
+    --cyan-glow: 0.78 0.18 194;
+    --navy-deep: 0.08 0.02 252;
+    --cyan-dim: 0.55 0.13 194;
+    --glass-bg: 0.14 0.025 250;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Sora', 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', 'Cabinet Grotesk', 'Sora', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: oklch(var(--glass-bg) / 0.7);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid oklch(var(--border) / 0.5);
+  }
+
+  .glass-card {
+    background: oklch(var(--card) / 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid oklch(var(--border) / 0.4);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px oklch(var(--cyan-glow) / 0.3), 0 0 60px oklch(var(--cyan-glow) / 0.1);
+  }
+
+  .glow-cyan-text {
+    text-shadow: 0 0 30px oklch(var(--cyan-glow) / 0.6);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, oklch(0.9 0.1 194), oklch(0.78 0.18 194), oklch(0.65 0.22 220));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tech-grid {
+    background-image:
+      linear-gradient(oklch(var(--cyan-glow) / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(var(--cyan-glow) / 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-bg {
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, oklch(var(--cyan-glow) / 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, oklch(0.6 0.2 260 / 0.1) 0%, transparent 50%),
+      oklch(var(--navy-deep));
+  }
+
+  .nav-blur {
+    background: oklch(var(--navy-deep) / 0.85);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+  }
+}
